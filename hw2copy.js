@@ -15,7 +15,7 @@ var Car = /** @class */ (function () {
     function Car(brand, year) {
         this.brand = brand;
         this.brand = brand;
-        this.Year = year;
+        this.Year = year.getFullYear();
     }
     ;
     Car.prototype.getBrand = function () {
@@ -29,9 +29,9 @@ var Car = /** @class */ (function () {
 var myBMW = /** @class */ (function (_super) {
     __extends(myBMW, _super);
     function myBMW() {
-        var _this = _super.call(this, 'BMW', new Date(1989)) || this;
-        _this.currentSpeed = 0;
-        _this.doors = false;
+        var _this = _super.call(this, 'BMW', new Date('2011-01-01')) || this;
+        _this.currentSpeed = 500;
+        _this.doors = true;
         return _this;
     }
     myBMW.prototype.faster = function () {
@@ -47,8 +47,8 @@ var myBMW = /** @class */ (function (_super) {
 var myVW = /** @class */ (function (_super) {
     __extends(myVW, _super);
     function myVW() {
-        var _this = _super.call(this, 'VW', new Date(2000)) || this;
-        _this.currentSpeed = 0;
+        var _this = _super.call(this, 'VW', new Date('1999-01-01')) || this;
+        _this.currentSpeed = 100;
         _this.doors = false;
         return _this;
     }
@@ -65,9 +65,9 @@ var myVW = /** @class */ (function (_super) {
 var myMercedes = /** @class */ (function (_super) {
     __extends(myMercedes, _super);
     function myMercedes() {
-        var _this = _super.call(this, 'Mercedes', new Date(2020)) || this;
-        _this.currentSpeed = 0;
-        _this.doors = false;
+        var _this = _super.call(this, 'Mercedes', new Date('2020-01-01')) || this;
+        _this.currentSpeed = 200;
+        _this.doors = true;
         return _this;
     }
     myMercedes.prototype.faster = function () {
@@ -84,9 +84,26 @@ var car1 = new myBMW();
 var car2 = new myVW();
 var car3 = new myMercedes();
 console.log(car1);
+console.log(car2);
+console.log(car3);
+console.log(car1.getBrand());
+console.log(car2.getBrand());
+console.log(car3.getBrand());
+console.log(car1.getYear());
+console.log(car2.getYear());
+console.log(car3.getYear());
+car1.faster();
+car1.faster();
 car1.faster();
 car2.faster();
+car2.faster();
+car2.faster();
+car3.faster();
+car3.faster();
 car3.faster();
 car1.slower();
+car1.slower();
 car2.slower();
+car2.slower();
+car3.slower();
 car3.slower();
